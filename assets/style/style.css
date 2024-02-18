@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+/* ------------------------------------ LAYOUT HEADER --------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+ /* DEBUT NAVBAR */
+ .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.8rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 5px 8px 15px -13px rgb(255 255 255);
+}
+
+  .favicon {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
+    z-index: -1;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4),transparent);
+    transition: .5s
+  }
+
+  header:hover::after {
+    left:100%;
+  }
+  
+  .icon-menu { /* Icone Homepage Page Login */
+    width: 10rem;
+    height: 10rem;
+    align-items: center;
+  }
+
+  .navbar a {
+    
+    font-size: 1.5rem;
+    color: #5C6BC0;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.5rem;
+    position: relative;
+  }
+
+  #check {
+    display: none;
+  }
+
+  .icons {
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: #5C6BC0;
+    cursor: pointer;
+    display: inline-flex;
+    right: 5%;
+  }
+
+  .icons #close-icon {
+    display: none;
+  }
+
+/* ------------------------------------ REGISTER PAGE --------------------------------- */
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* linear-gradient(120deg, #745d5d, #745d5d); */
+}
+
+.register-wrapper {
+  perspective: 1000px;
+}
+
+.register-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  transition: transform 1s ease;
+  margin-top: 10rem;
+}
+
+.register-card:hover {
+  transform: rotateY(10deg);
+}
+
+.register-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.input-group.password {
+  margin-bottom: 2rem; 
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #ff6b6b;
+}
+
+.input-icon-eye {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: #ff6b6b;
+  cursor: pointer;
+}
+
+.register-form input[type='text'],
+.register-form input[type='email'],
+.register-form input[type='password'] {
+  width: 18rem; 
+  margin: auto; 
+  padding: 1rem;
+  padding-left: 2.5rem; 
+  padding-right: 2.5rem; 
+  border-radius: 2rem;
+  border: none;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+.register-form input[type='password'] {
+  padding-right: 2.5rem; 
+}
+
+
+.register-form input[type='text']:focus,
+.register-form input[type='email']:focus,
+.register-form input[type='password']:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f6d365; 
+}
+
+.register-button {
+  display: block;
+  width: 100%; 
+  margin: auto; 
+  padding: 1rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: #5C6BC0; 
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.register-button:hover {
+  background-color: #3F51B5; 
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register-footer a {
+  color: #5C6BC0;
+  text-decoration: none;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}
+
+.password-strength {
+  height: 5px;
+  width: 0%;
+  background-color: red;
+  transition: width 0.3s ease-in-out;
+}
+
+.password-strength.weak {
+  width: 33%;
+  background-color: red;
+}
+
+.password-strength.medium {
+  width: 66%;
+  background-color: orange;
+}
+
+.password-strength.strong {
+  width: 100%;
+  background-color: green;
+}
+/* ------------------------------------ LOGIN PAGE --------------------------------- */
+
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.login-wrapper {
+  perspective: 1000px;
+}
+
+.login-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  transition: transform 1s ease;
+  margin-top: 10rem;
+}
+
+.login-card:hover {
+  transform: rotateY(10deg);
+}
+
+
+.login-title {
+  text-align: center;
+  color: #5C6BC0;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+
+.login-form input[type='text'],
+.login-form input[type='email'],
+.login-form input[type='password'] {
+  width: 15rem;
+  margin: auto; 
+  padding: 1rem;
+  padding-left: 2.5rem; 
+  padding-right: 2.5rem; 
+  border-radius: 2rem;
+  border: none;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+.login-form input[type='password'] {
+  padding-right: 2.5rem; 
+}
+
+
+
+.login-form input[type='text']:focus,
+.login-form input[type='email']:focus,
+.login-form input[type='password']:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f6d365; 
+}
+
+.login-button {
+  display: block;
+  width: 100%; 
+  margin: auto; 
+  padding: 1rem;
+  border-radius: 2rem;
+  border: none;
+  background-color:#5C6BC0;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.login-button:hover {
+  background-color: #3F51B5; 
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.login-footer a {
+  color: #5C6BC0;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------------ RESPONSIVE --------------------------------- */
+
+
+
+/* ------------------------------ RESPONSIVE LAYOUT HEADER ----------------------------- */
+
+@media (max-width: 992px) {
+    /* NAVBAR */
+    .header {
+        padding: 0.8rem 5%;
+    }
+
+  }
+
+  @media (max-width: 768px) {
+
+    /* NAVBAR MOBILE */
+    .icons {
+        display: inline-flex;
+    }
+
+    #check:checked~.icons #menu-icon{
+      display: none;
+    }
+
+    .icons #close-icon {
+      display: none;
+    }
+
+    #check:checked~.icons #close-icon{
+      display: block;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(50px);
+      box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: .3s ease;
+  }
+    #check:checked~.navbar{
+        height: 10rem;
+    }
+
+    .navbar a {
+      display: block;
+      font-size: 1.1rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      transform: translateY(-50px);
+      opacity: 0;
+      transition: .3s ease;  
+  }
+
+    #check:checked~.navbar a {
+        transform: translateY(0px);
+        opacity: 1;
+        transition-delay: calc(.15s * var(--i));
+    }
+
+    #add_student>a {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 2em;
+      padding: 150px 30px 30px 30px;
+      color: black;
+    }
+}
+
+.logo {
+    height: 5rem;
+    width: 5rem;
+}
+
+/* 
+header {
+    background-color: white;
+    font-size: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 50;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 5rem;
+    width: 5rem;
+}
+ */
+
