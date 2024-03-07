@@ -1,35 +1,29 @@
-<section>
-    <header>
-        <div class="header-link">
-            <h4>Memento</h4>
-        </div>
-    </header>
-
-    <section class="section-1">
-        <h1> Memento </h1>
-        <a href="create.php">
-            <button class="btn-add"> Add Postit </button>
+<head> 
+    <title>Page d'Acceuil</title>
+</head>
+<section class="section-homepage" aria-label="Section Memento de <?php echo $firstname;?>">
+        <h1 class="title-homepage"> Memento de <?php echo $firstname;?></h1>
+        <a href="?page=create_post-it">
+            <button class="add-post-it">
+                <i class="ri-add-circle-fill"> Nouveau post-it </i>
+            </button>
         </a>
-        <h1>Bienvenue <?php echo $firstname; ?></h1>
-
-    </section>
-    <section class="container">
-        <div class="container-post-it">
-            <?php foreach ($datas as $data) { ?>
-                <article class="post-it">
-                    <div class="post-it-head">
-                        <h4> <?php echo ($data['title']) ?></h4>
-
-                        <form method="post" action="">
-                            <input type="hidden" name=id value="<?= ($data['id']) ?>">
-                            <button class="btn-post-it" type="submit" name="del_button"><i class="fa-solid fa-xmark"></i>
-                            </button>
-                        </form>
-                    </div>
-                    <p> <?php echo ($data['content']) ?> </p>
-                    <p> <?php echo ($data['date']) ?> </p>
-                </article>
-            <?php } ?>
-        </div>
-    </section>
 </section>
+<div class="content">
+    <?php foreach ($datas as $data) { ?>
+        <article class="post-it">
+            <div class="post-it-header">
+                <h2> <?php echo ($data['title']) ?></h2>
+                <form method="post" action="">
+                    <input type="hidden" name=id value="<?= ($data['id']) ?>">
+                    <button data-id="<?= $data['id'] ?>" class="btn-delete-post-it" type="button" aria-label="button-delete-post-it">
+                        <i class="fa-solid fa-circle-xmark" style="color: #333E83;"></i>
+                    </button>
+                </form>
+            </div>
+            <p class="content-post-it"> <?php echo ($data['content'])?></p>
+            <hr>
+            <p class="date-post-it"> Créé le <?php echo ($data['formatted_date'])?></p>
+        </article>
+    <?php } ?>
+</div>

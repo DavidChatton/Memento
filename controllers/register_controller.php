@@ -1,8 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST'  && isset($_POST['token']) && $_POST['token'] === $_SESSION['token']) {
-
     $error = false;
-
     if (!empty($_POST)) {
         if (empty($_POST['firstname'])) {
             echo 'Veuillez renseigner votre prénom';
@@ -22,23 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'  && isset($_POST['token']) && $_POST['
         } elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
             echo 'Veuillez rentrer une adresse mail valide';
             $error = true;
-        } elseif (strlen($_POST['password']) < 14) {
-            echo "Veuillez rentrer un mot de passe d'au minimum 14 caractères";
+        } elseif (strlen($_POST['password']) < 8) {
+            echo "Veuillez rentrer un mot de passe d'au minimum 8 caractères";
             $error = true;
         }
     }
-
     if (!$error) {
         var_dump($_POST);
-    
-            $firstname = $_POST['firstname'];
-            $lastname = $_POST['lastname'];
-            $nickname = $_POST['nickname'];
-            $email = $_POST['email'];
+            $firstname = htmlspecialchars($_POST['firstname']);
+            $lastname = htmlspecialchars($_POST['lastname']);
+            $nickname = htmlspecialchars($_POST['nickname']);
+            $email = htmlspecialchars($_POST['email']);
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    
             $stmt = $bdd->prepare('INSERT INTO users (firstname, lastname, nickname, email, password) VALUES (?, ?, ?, ?, ?)');
-    
             try {
                 $stmt->execute([$firstname, $lastname, $nickname, $email, $password]);
                 ?>
@@ -48,28 +42,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'  && isset($_POST['token']) && $_POST['
                     icon: "success",
                     title: "Votre compte a bien été créé",
                     showConfirmButton: true,
-                    timer: 2500
+                    timer: 2000
                   }).then(function() {
                     window.location.href = "?page=login";
                   });
                 </script>
                 <?php
-
-
             } catch (PDOException $e) {
                 echo 'Error: ' . $e->getMessage();
             }
         }
-
-
     if (!$_POST['token'] || $_POST['token'] !== $_SESSION['token']) {
         // return 405 http status code
         header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
         exit();
     }
 }
-
 require 'views/register.php';
-
-
-

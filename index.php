@@ -3,7 +3,7 @@ session_start();
 
 require 'model/connection.php';
 
-// liste des routes autorisées
+// list of authorized routes
 $authorizedRoutes = [
     'homepage',
     'register',
@@ -12,10 +12,10 @@ $authorizedRoutes = [
     'create_post-it'
     ];
 
-// page par default    
+// default page 
 $route = 'homepage';
 
-// condition qui vérifie si la route dans l'url recuperer par la méthode get est stocker dans le tableau $availableRoutes []
+// condition that checks if the route in the url retrieved by the get method is stored in the $availableRoutes array []
 
 if (in_array($_GET['page'], $authorizedRoutes)) {
     $route = $_GET['page'];
