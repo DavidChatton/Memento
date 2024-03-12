@@ -124,44 +124,53 @@ body {
 .register-card:hover {
   transform: rotateY(10deg);
 }
+.fa-address-card {
+  margin-right: 0.4rem;
+}
 .register-title {
   text-align: center;
-  color: #333;
+  color: #5766B6;
   margin-bottom: 2rem;
 }
 .input-group {
   position: relative;
   margin-bottom: 1rem;
+  display: flex;
 }
 .input-group.password {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
 }
 .input-icon {
   position: absolute;
   top: 50%;
-  left: 12px;
+  left: 2rem;
   transform: translateY(-50%);
   color: #ff6b6b;
 }
 .input-icon-eye {
   position: absolute;
   top: 50%;
-  right: 12px;
+  right: 2rem;
   transform: translateY(-50%);
   color: #ff6b6b;
   cursor: pointer;
 }
+.error-password {
+  text-align: center;
+  margin-bottom: 1rem;
+}
 .register-form input[type="text"],
 .register-form input[type="email"],
 .register-form input[type="password"] {
-  width: 18rem;
+  width: 90%;
   margin: auto;
   padding: 1rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   border-radius: 2rem;
   border: none;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #f0f0f0;
 }
 .register-form input[type="password"] {
   padding-right: 2.5rem;
@@ -174,7 +183,7 @@ body {
 }
 .register-button {
   display: block;
-  width: 100%;
+  width: 90%;
   margin: auto;
   padding: 1rem;
   border-radius: 2rem;
@@ -204,18 +213,6 @@ body {
   width: 0%;
   background-color: red;
   transition: width 0.3s ease-in-out;
-}
-.password-strength.weak {
-  width: 33%;
-  background-color: red;
-}
-.password-strength.medium {
-  width: 66%;
-  background-color: orange;
-}
-.password-strength.strong {
-  width: 100%;
-  background-color: green;
 }
 /* ------------------------------------ LOGIN PAGE --------------------------------- */
 @keyframes gradientAnimation {
@@ -255,6 +252,21 @@ body {
   position: relative;
   margin-bottom: 1rem;
 }
+.input-icon-login {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #ff6b6b;
+}
+.input-icon-eye-login {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  color: #ff6b6b;
+  cursor: pointer;
+}
 .login-form input[type="text"],
 .login-form input[type="email"],
 .login-form input[type="password"] {
@@ -265,7 +277,7 @@ body {
   padding-right: 2.5rem;
   border-radius: 2rem;
   border: none;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #f0f0f0;
 }
 .login-form input[type="password"] {
   padding-right: 2.5rem;
@@ -515,7 +527,22 @@ textarea {
   .register-form input[type="text"],
   .register-form input[type="email"],
   .register-form input[type="password"] {
-    width: 15rem;
+    width: 90%;
+  }
+  .input-icon {
+    position: absolute;
+    top: 50%;
+    left: 1.8rem;
+    transform: translateY(-50%);
+    color: #ff6b6b;
+  }
+  .input-icon-eye {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    color: #ff6b6b;
+    cursor: pointer;
   }
 }
 /* 

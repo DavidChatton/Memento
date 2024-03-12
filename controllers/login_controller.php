@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'  && isset($_POST['token']) && $_POST['
         header('Location: ?page=homepage');
         exit();  
         } else {
-            echo 'Invalid email or password';
+            $error = 'Vérifiez votre adresse mail ou votre mot de passe saisis puis recommencez.';
         }
 }
 require 'views/login.php';

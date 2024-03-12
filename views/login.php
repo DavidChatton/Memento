@@ -10,12 +10,15 @@
             </h2>
             <form action="?page=login" method="post"  class="login-form" id="loginForm">
                 <div class="input-group">
-                    <i class="fas fa-user input-icon"></i>
+                    <i class="fas fa-user input-icon-login"></i>
                     <input type="email" id="username" name="email" placeholder="Adresse Mail" required>
                 </div>
                 <div class="input-group">
-                    <i class="fas fa-lock input-icon"></i>
-                    <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                    <i class="fas fa-lock input-icon-login"></i>
+                    <input type="password" id="password" onblur="checkPassword()" name="password" placeholder="Mot de passe" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye input-icon-eye-login"></i>
+                    </span>
                 </div>
                 <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?? '' ?>">
                 <button type="submit" class="login-button">Connexion</button>
@@ -41,6 +44,18 @@
                     title: 'Accès refusé',
                     text: 'Vous devez être connecté pour accéder à cette page.',
                 });
+            });
+        </script>
+        HTML;
+    }
+    if (isset($error) && !empty($error)) {
+        echo <<<HTML
+        <script>
+            // Display error alert
+            Swal.fire({
+                icon: 'error',
+                title: 'Identifiant incorrect',
+                text: '{$error}',
             });
         </script>
         HTML;

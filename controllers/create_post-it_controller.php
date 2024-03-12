@@ -29,6 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'  && isset($_POST['token']) && $_POST['
     ]);
     header('location: ?page=homepage');
     exit();
+} else {
+    
 }
 
 require 'views/create_post-it.php';
