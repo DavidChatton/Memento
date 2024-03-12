@@ -47,15 +47,5 @@
     <main>
         <?php require 'controllers/' . $route . '_controller.php'; ?>
     </main>
-
-    <footer>
-        <!--     <a href="?page=homepage">About</a>
-        <a href="?page=homepage">Blog</a>
-        <a href="?page=homepage">Jobs</a>
-        <a href="?page=homepage">Press</a>
-        <a href="?page=homepage">Accessibility</a>
-        <a href="?page=homepage">Partners</a> -->
-
-    </footer>
     <script src="index.js"></script>
 </body>

@@ -42,24 +42,6 @@ header::before {
   backdrop-filter: blur(50px);
   z-index: -1;
 }
-.header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  transition: 0.5s;
-}
-header:hover::after {
-  left: 100%;
-}
 .icon-menu {
   /* Icone Homepage Page Login */
   width: 10rem;
@@ -129,7 +111,7 @@ body {
 }
 .register-title {
   text-align: center;
-  color: #5766B6;
+  color: #333E83;
   margin-bottom: 2rem;
 }
 .input-group {
@@ -188,7 +170,7 @@ body {
   padding: 1rem;
   border-radius: 2rem;
   border: none;
-  background-color: #4150A8;
+  background-color: #333E83;
   color: white;
   font-size: 1rem;
   cursor: pointer;
@@ -202,7 +184,7 @@ body {
   margin-top: 1rem;
 }
 .register-footer a {
-  color: #4150A8;
+  color: #333E83;
   text-decoration: none;
 }
 .register-footer a:hover {
@@ -245,7 +227,7 @@ body {
 }
 .login-title {
   text-align: center;
-  color: #5c6bc0;
+  color: #333E83;
   margin-bottom: 2rem;
 }
 .input-group {
@@ -296,7 +278,7 @@ body {
   padding: 1rem;
   border-radius: 2rem;
   border: none;
-  background-color: #5c6bc0;
+  background-color: #333E83;
   color: white;
   font-size: 1rem;
   cursor: pointer;
@@ -312,7 +294,7 @@ body {
 }
 
 .login-footer a {
-  color: #5c6bc0;
+  color: #333E83;
   text-decoration: none;
 }
 
@@ -360,7 +342,9 @@ body {
   border-radius: 2px;
   box-shadow: 0px 15px 14px 3px rgba(0,0,0,0.3);
   border: 1px solid #4150a8;
-  border-radius: 15px;
+  max-width: 330px;
+  max-height: 449px;
+  overflow: hidden;
 }
 .post-it-header {
   display: flex;
@@ -381,21 +365,28 @@ body {
   font-size: 24px;
 }
 .content-post-it {
-  margin: 0px 0px 10px 0;
+  margin: 0px 0px 20px 0;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+  max-height: 237px;
+  overflow: hidden;
 }
 hr{
   width: 100%;
   border: none;
   border-bottom: 1px solid #333E83;
   margin-top: 0;
+  position: absolute;
+  bottom: 30px;
+  right: 0px;
 }
 .date-post-it {
-  display: flex;
-  justify-content: flex-end;
+  
   font-size: small;
   margin-top: 0.25rem;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 /* ------------------------------------ CREATE POST IT --------------------------------- */
@@ -448,6 +439,7 @@ textarea {
 }
 /* -------------------------------- HOMEPAGE -------------------------------- */
 /* ------------------------------------ RESPONSIVE --------------------------------- */
+
 
 /* ------------------------------ RESPONSIVE LAYOUT HEADER ----------------------------- */
 
@@ -544,24 +536,7 @@ textarea {
     color: #ff6b6b;
     cursor: pointer;
   }
+  .wrapper {
+    width: 370px;
+  }
 }
-/* 
-header {
-    background-color: white;
-    font-size: 2rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 50;
-}
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.logo {
-    height: 5rem;
-    width: 5rem;
-}
- */

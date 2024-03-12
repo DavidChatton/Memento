@@ -23,7 +23,7 @@
             </div>
             <p class="content-post-it"> <?php echo ($data['content'])?></p>
             <hr>
-            <p class="date-post-it"> Créé le <?php echo ($data['formatted_date'])?></p>
+            <p class="date-post-it"> Crée le <?php echo ($data['formatted_date'])?></p>
         </article>
     <?php } ?>
 </div>
